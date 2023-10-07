@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+</head>
+<body>
+
+<h2>Enter Your Metrics</h2>
+
+<form action="/" method="post">
+    Age: <input type="range" name="age" min="20" max="100" value="50"><span id="ageValue">50</span><br>
+    Sex: <select name="sex">
+            <option value="1">Male</option>
+            <option value="0">Female</option>
+         </select><br>
+    CP: <input type="range" name="cp" min="0" max="3" value="1"><span id="cpValue">1</span><br>
+    Trestbps: <input type="range" name="trestbps" min="90" max="200" value="120"><span id="trestbpsValue">120</span><br>
+    Chol: <input type="range" name="chol" min="100" max="400" value="200"><span id="cholValue">200</span><br>
+    Fbs: <select name="fbs">
+            <option value="1">True</option>
+            <option value="0">False</option>
+         </select><br>
+    Restecg: <input type="range" name="restecg" min="0" max="2" value="1"><span id="restecgValue">1</span><br>
+    Thalach: <input type="range" name="thalach" min="60" max="200" value="150"><span id="thalachValue">150</span><br>
+    Exang: <select name="exang">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+         </select><br>
+    Oldpeak: <input type="range" name="oldpeak" min="0" max="6" step="0.1" value="2.5"><span id="oldpeakValue">2.5</span><br>
+    Slope: <input type="range" name="slope" min="0" max="2" value="1"><span id="slopeValue">1</span><br>
+    Ca: <input type="range" name="ca" min="0" max="4" value="2"><span id="caValue">2</span><br>
+    Thal: <input type="range" name="thal" min="0" max="3" value="1"><span id="thalValue">1</span><br>
+    <input type="submit" value="Predict">
+</form>
+
+{% if result %}
+<p><strong>Result:</strong> {{ result }}</p>
+{% endif %}
+
+<script>
+    // Add event listeners to update the displayed value for each slider
+    const sliders = ["age", "cp", "trestbps", "chol", "restecg", "thalach", "oldpeak", "slope", "ca", "thal"];
+    sliders.forEach(id => {
+        let slider = document.querySelector(`input[name=${id}]`);
+        let output = document.getElementById(`${id}Value`);
+        output.innerHTML = slider.value;
+        slider.oninput = function() {
+            output.innerHTML = this.value;
+        }
+    });
+</script>
+
+</body>
+</html>
