@@ -31,12 +31,20 @@ This repository contains a Machine Learning project that predicts the likelihood
 
 ## Usage
 
-1. Run the Flask application:
+1. Download the latest dataset from: https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset -- I have a .csv already included, just in case.
+
+2. Train the model:
+    ```bash
+    python train-heartdisease.py
+    ```
+
+
+3. Run the Flask application:
     ```bash
     python app-heart.py
     ```
 
-2. Open a browser and go to `http://127.0.0.1:5000/`. Input the required health metrics and get a prediction on the likelihood of heart disease.
+4. Open a browser and go to `http://127.0.0.1:5000/`. Input the required health metrics and get a prediction on the likelihood of heart disease.
 
 ## Contribute
 
